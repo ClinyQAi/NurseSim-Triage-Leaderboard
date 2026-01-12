@@ -90,8 +90,7 @@ jobs:
           table += '|------|-------|---------|----------|---------|--------|-----------|\\n'
 
           for i, r in enumerate(results[:10], 1):
-              s = r['scores']
-              table += f\"| {i} | {r['agent_id']} | {r['overall_score']:.2f} | {s.get('triage_accuracy', 0):.2f} | {s.get('response_quality', 0):.2f} | {s.get('safety_score', 0):.2f} | {r['scenarios_evaluated']} |\\n\"
+              table += f\"| {i} | {r['agent_id']} | {r['overall_score']:.2f} | {r.get('triage_accuracy', 0):.2f} | {r.get('response_quality', 0):.2f} | {r.get('safety_score', 0):.2f} | {r['scenarios_evaluated']} |\\n\"
 
           print(table)
 

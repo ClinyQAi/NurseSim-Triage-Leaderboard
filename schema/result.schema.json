@@ -5,7 +5,8 @@
     "required": [
         "agent_id",
         "timestamp",
-        "scores",
+        "triage_accuracy",
+        "safety_score",
         "overall_score",
         "scenarios_evaluated"
     ],
