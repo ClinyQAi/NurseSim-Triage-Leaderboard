@@ -6,4 +6,4 @@
 | 2 | TestUser/gpt4-triage-agent | 0.89 | 0.91 | 0.88 | 0.98 | 50 |
 | 3 | ClinyQAi/nursesim-triage-baseline | 0.81 | 0.82 | 0.75 | 1.00 | 50 |
 
-_Last updated: 2026-01-12T01:08:42.968550Z_
+_Last updated: 2026-01-12T01:20:44.955430Z_
