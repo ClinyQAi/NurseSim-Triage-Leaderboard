@@ -1,0 +1,8 @@
+[scenario]
+name = "NurseSim-Triage"
+description = "Evaluation of clinical triage agents using NurseSim-RL"
+version = "1.0.0"
+
+[metrics]
+primary = "overall_score"
+secondary = ["triage_accuracy", "safety_score"]
