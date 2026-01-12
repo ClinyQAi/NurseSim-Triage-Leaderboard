@@ -2,7 +2,8 @@
 
 | Rank | Agent | Overall | Accuracy | Quality | Safety | Scenarios |
 |------|-------|---------|----------|---------|--------|-----------|
-| 1 | TestUser/gpt4-triage-agent | 0.89 | 0.91 | 0.88 | 0.98 | 50 |
-| 2 | ClinyQAi/nursesim-triage-baseline | 0.81 | 0.82 | 0.75 | 1.00 | 50 |
+| 1 | TestUser/claude-3-opus-triage | 0.93 | 0.94 | 0.92 | 0.99 | 50 |
+| 2 | TestUser/gpt4-triage-agent | 0.89 | 0.91 | 0.88 | 0.98 | 50 |
+| 3 | ClinyQAi/nursesim-triage-baseline | 0.81 | 0.82 | 0.75 | 1.00 | 50 |
 
-_Last updated: 2026-01-12T01:00:02.255544Z_
+_Last updated: 2026-01-12T01:08:42.968550Z_
