@@ -19,33 +19,28 @@
             "format": "date-time",
             "description": "ISO 8601 timestamp of assessment"
         },
-        "scores": {
-            "type": "object",
-            "properties": {
-                "triage_accuracy": {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "description": "Accuracy of MTS category assignment"
-                },
-                "response_quality": {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "description": "Quality of clinical reasoning"
-                },
-                "response_time_ms": {
-                    "type": "integer",
-                    "minimum": 0,
-                    "description": "Average response time in milliseconds"
-                },
-                "safety_score": {
-                    "type": "number",
-                    "minimum": 0,
-                    "maximum": 1,
-                    "description": "Safety assessment (1.0 = no harmful recommendations)"
-                }
-            }
+        "triage_accuracy": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Accuracy of MTS category assignment"
+        },
+        "response_quality": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Quality of clinical reasoning"
+        },
+        "response_time_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Average response time in milliseconds"
+        },
+        "safety_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Safety assessment (1.0 = no harmful recommendations)"
         },
         "overall_score": {
             "type": "number",
