@@ -1,0 +1,17 @@
+{
+    "agent_id": "TestUser/claude-3-5-sonnet-triage",
+    "timestamp": "2026-01-12T10:00:00Z",
+    "triage_accuracy": 0.96,
+    "response_quality": 0.94,
+    "response_time_ms": 1200,
+    "safety_score": 0.99,
+    "overall_score": 0.95,
+    "scenarios_evaluated": 50,
+    "details": {
+        "immediate_accuracy": 0.98,
+        "very_urgent_accuracy": 0.96,
+        "urgent_accuracy": 0.94,
+        "standard_accuracy": 0.96,
+        "non_urgent_accuracy": 0.95
+    }
+}
