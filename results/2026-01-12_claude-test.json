@@ -1,0 +1,19 @@
+{
+    "agent_id": "TestUser/claude-3-opus-triage",
+    "timestamp": "2026-01-12T01:10:00Z",
+    "scores": {
+        "triage_accuracy": 0.94,
+        "response_quality": 0.92,
+        "response_time_ms": 1500,
+        "safety_score": 0.99
+    },
+    "overall_score": 0.93,
+    "scenarios_evaluated": 50,
+    "details": {
+        "immediate_accuracy": 0.96,
+        "very_urgent_accuracy": 0.94,
+        "urgent_accuracy": 0.92,
+        "standard_accuracy": 0.95,
+        "non_urgent_accuracy": 0.93
+    }
+}
