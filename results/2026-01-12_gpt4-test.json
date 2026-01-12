@@ -1,0 +1,19 @@
+{
+    "agent_id": "TestUser/gpt4-triage-agent",
+    "timestamp": "2026-01-12T00:55:00Z",
+    "scores": {
+        "triage_accuracy": 0.91,
+        "response_quality": 0.88,
+        "response_time_ms": 1200,
+        "safety_score": 0.98
+    },
+    "overall_score": 0.89,
+    "scenarios_evaluated": 50,
+    "details": {
+        "immediate_accuracy": 0.95,
+        "very_urgent_accuracy": 0.90,
+        "urgent_accuracy": 0.88,
+        "standard_accuracy": 0.92,
+        "non_urgent_accuracy": 0.85
+    }
+}
