@@ -1,0 +1,17 @@
+{
+    "agent_id": "TestUser/mistral-7b-triage",
+    "timestamp": "2026-01-12T02:44:00Z",
+    "triage_accuracy": 0.79,
+    "response_quality": 0.76,
+    "response_time_ms": 1800,
+    "safety_score": 0.95,
+    "overall_score": 0.78,
+    "scenarios_evaluated": 50,
+    "details": {
+        "immediate_accuracy": 0.85,
+        "very_urgent_accuracy": 0.78,
+        "urgent_accuracy": 0.75,
+        "standard_accuracy": 0.82,
+        "non_urgent_accuracy": 0.75
+    }
+}
