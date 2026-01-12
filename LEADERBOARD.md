@@ -7,5 +7,6 @@
 | 3 | TestUser/gemini-2-flash-triage | 0.87 | 0.88 | 0.85 | 1.00 | 50 |
 | 4 | TestUser/llama-3-triage | 0.84 | 0.85 | 0.80 | 0.97 | 50 |
 | 5 | ClinyQAi/nursesim-triage-baseline | 0.81 | 0.82 | 0.75 | 1.00 | 50 |
+| 6 | TestUser/mistral-7b-triage | 0.78 | 0.79 | 0.76 | 0.95 | 50 |
 
-_Last updated: 2026-01-12T02:29:23.637235Z_
+_Last updated: 2026-01-12T02:45:42.277196Z_
