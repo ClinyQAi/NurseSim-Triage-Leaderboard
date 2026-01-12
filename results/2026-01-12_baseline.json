@@ -1,6 +1,6 @@
 {
     "agent_id": "ClinyQAi/nursesim-triage-baseline",
-    "timestamp": "2026-01-12T00:00:00Z",
+    "timestamp": "2026-01-12T00:59:00Z",
     "scores": {
         "triage_accuracy": 0.82,
         "response_quality": 0.75,
