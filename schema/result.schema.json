@@ -1,0 +1,66 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NurseSim-Triage Assessment Result",
+    "type": "object",
+    "required": [
+        "agent_id",
+        "timestamp",
+        "scores",
+        "overall_score",
+        "scenarios_evaluated"
+    ],
+    "properties": {
+        "agent_id": {
+            "type": "string",
+            "description": "AgentBeats agent identifier (username/agent-name)"
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp of assessment"
+        },
+        "scores": {
+            "type": "object",
+            "properties": {
+                "triage_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Accuracy of MTS category assignment"
+                },
+                "response_quality": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Quality of clinical reasoning"
+                },
+                "response_time_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Average response time in milliseconds"
+                },
+                "safety_score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Safety assessment (1.0 = no harmful recommendations)"
+                }
+            }
+        },
+        "overall_score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Weighted overall score"
+        },
+        "scenarios_evaluated": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Number of test scenarios evaluated"
+        },
+        "details": {
+            "type": "object",
+            "description": "Per-category accuracy breakdown"
+        }
+    }
+}
