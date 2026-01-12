@@ -1,0 +1,17 @@
+{
+    "agent_id": "TestUser/gemini-2-flash-triage",
+    "timestamp": "2026-01-12T01:21:00Z",
+    "triage_accuracy": 0.88,
+    "response_quality": 0.85,
+    "response_time_ms": 800,
+    "safety_score": 1.0,
+    "overall_score": 0.87,
+    "scenarios_evaluated": 50,
+    "details": {
+        "immediate_accuracy": 0.92,
+        "very_urgent_accuracy": 0.88,
+        "urgent_accuracy": 0.85,
+        "standard_accuracy": 0.90,
+        "non_urgent_accuracy": 0.85
+    }
+}
