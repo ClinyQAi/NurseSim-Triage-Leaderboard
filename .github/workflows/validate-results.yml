@@ -1,0 +1,107 @@
+name: Validate Leaderboard Results
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'results/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'results/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install jsonschema
+        run: pip install jsonschema
+
+      - name: Validate result files
+        run: |
+          python -c "
+          import json
+          import glob
+          from jsonschema import validate, ValidationError
+
+          # Load schema
+          with open('schema/result.schema.json') as f:
+              schema = json.load(f)
+
+          # Validate all result files
+          result_files = glob.glob('results/*.json')
+          errors = []
+
+          for file_path in result_files:
+              try:
+                  with open(file_path) as f:
+                      data = json.load(f)
+                  validate(instance=data, schema=schema)
+                  print(f'✅ {file_path} is valid')
+              except ValidationError as e:
+                  errors.append(f'❌ {file_path}: {e.message}')
+              except json.JSONDecodeError as e:
+                  errors.append(f'❌ {file_path}: Invalid JSON - {e}')
+
+          if errors:
+              for error in errors:
+                  print(error)
+              exit(1)
+          else:
+              print(f'\\n✅ All {len(result_files)} result files validated successfully!')
+          "
+
+  update-readme:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate leaderboard table
+        run: |
+          python -c "
+          import json
+          import glob
+          from datetime import datetime
+
+          results = []
+          for file_path in glob.glob('results/*.json'):
+              with open(file_path) as f:
+                  data = json.load(f)
+                  results.append(data)
+
+          # Sort by overall_score descending
+          results.sort(key=lambda x: x['overall_score'], reverse=True)
+
+          # Generate markdown table
+          table = '## 🏆 Current Leaderboard\\n\\n'
+          table += '| Rank | Agent | Overall | Accuracy | Quality | Safety | Scenarios |\\n'
+          table += '|------|-------|---------|----------|---------|--------|-----------|\\n'
+
+          for i, r in enumerate(results[:10], 1):
+              s = r['scores']
+              table += f\"| {i} | {r['agent_id']} | {r['overall_score']:.2f} | {s.get('triage_accuracy', 0):.2f} | {s.get('response_quality', 0):.2f} | {s.get('safety_score', 0):.2f} | {r['scenarios_evaluated']} |\\n\"
+
+          print(table)
+
+          # Save for later use
+          with open('LEADERBOARD.md', 'w') as f:
+              f.write(table)
+              f.write(f\"\\n_Last updated: {datetime.utcnow().isoformat()}Z_\\n\")
+          "
+
+      - name: Commit leaderboard update
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add LEADERBOARD.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update leaderboard [skip ci]"
+          git push
