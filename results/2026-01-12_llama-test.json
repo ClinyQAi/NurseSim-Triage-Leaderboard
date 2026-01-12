@@ -1,0 +1,17 @@
+{
+    "agent_id": "TestUser/llama-3-triage",
+    "timestamp": "2026-01-12T02:28:00Z",
+    "triage_accuracy": 0.85,
+    "response_quality": 0.80,
+    "response_time_ms": 2500,
+    "safety_score": 0.97,
+    "overall_score": 0.84,
+    "scenarios_evaluated": 50,
+    "details": {
+        "immediate_accuracy": 0.90,
+        "very_urgent_accuracy": 0.84,
+        "urgent_accuracy": 0.82,
+        "standard_accuracy": 0.88,
+        "non_urgent_accuracy": 0.80
+    }
+}
