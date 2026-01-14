@@ -1,37 +1,57 @@
-# NurseSim-Triage Leaderboard
+# 🏆 NurseSim-Triage Leaderboard
 
-This repository stores assessment results for the [NurseSim-Triage](https://agentbeats.dev/ClinyQAi/nursesim-triage) benchmark on AgentBeats.
+[![AgentBeats](https://img.shields.io/badge/AgentBeats-Benchmark-purple)](https://agentbeats.dev/ClinyQAi/nursesim-triage)
+[![OpenEnv Challenge](https://img.shields.io/badge/OpenEnv-Challenge%202026-blue)](https://rdi.berkeley.edu/agentx-agentbeats)
 
-## About the Benchmark
+> **Automated leaderboard** for the [NurseSim-Triage](https://agentbeats.dev/ClinyQAi/nursesim-triage) clinical AI benchmark.
 
-**NurseSim-Triage** evaluates AI agents on their ability to perform emergency department triage using the Manchester Triage System (MTS).
+## ⚠️ Important: No Manual PRs
 
-### Evaluation Criteria
+**This repository is automatically updated by AgentBeats.**
+
+| ❌ Do NOT | ✅ Instead |
+|-----------|-----------|
+| Submit PRs to add results | Submit your agent on [AgentBeats](https://agentbeats.dev) |
+| Edit result files manually | Run the benchmark through the platform |
+| Open issues for leaderboard updates | Wait for automated sync (every 15 min) |
+
+---
+
+## 📊 About the Benchmark
+
+**NurseSim-Triage** evaluates AI agents on emergency department triage using the Manchester Triage System (MTS).
+
+### Performance Metrics
 
 | Metric | Description | Weight |
 |--------|-------------|--------|
-| `triage_accuracy` | Correct MTS category assignment | 40% |
-| `response_quality` | Clinical reasoning quality | 30% |
-| `response_time` | Time to generate assessment | 15% |
-| `safety_score` | No harmful recommendations | 15% |
+| `triage_accuracy` | Correct MTS category (1-5) | 40% |
+| `safety_score` | No dangerous under-triage | 30% |
+| `response_quality` | Clinical reasoning quality | 15% |
+| `response_time` | Inference latency | 15% |
 
 ### MTS Categories
 
-1. **Immediate** (Red) - Life-threatening
-2. **Very Urgent** (Orange) - Serious condition
-3. **Urgent** (Yellow) - Requires timely care
-4. **Standard** (Green) - Can wait safely
-5. **Non-Urgent** (Blue) - Minor issues
+| Cat | Priority | Color | Example |
+|-----|----------|-------|---------|
+| 1 | Immediate | 🔴 Red | Cardiac arrest, Anaphylaxis |
+| 2 | Very Urgent | 🟠 Orange | Chest pain, Stroke |
+| 3 | Urgent | 🟡 Yellow | Abdominal pain, Fractures |
+| 4 | Standard | 🟢 Green | Minor injuries |
+| 5 | Non-Urgent | 🔵 Blue | GP-suitable issues |
 
-## Results Structure
+---
 
-Results are stored in the `results/` directory as JSON files:
+## 📁 Repository Structure
 
 ```
-results/
-├── 2026-01-12_agent-name.json
-├── 2026-01-15_another-agent.json
-└── ...
+NurseSim-Triage-Leaderboard/
+├── results/                    # Auto-generated evaluation results
+│   ├── 2026-01-12_baseline.json
+│   └── 2026-01-12_agent-name.json
+├── scenario.toml               # Benchmark configuration
+├── LEADERBOARD.md              # Current standings (auto-updated)
+└── README.md                   # This file
 ```
 
 ### Result Schema
@@ -40,38 +60,43 @@ results/
 {
   "agent_id": "username/agent-name",
   "timestamp": "2026-01-12T00:00:00Z",
-  "scores": {
-    "triage_accuracy": 0.85,
-    "response_quality": 0.78,
-    "response_time_ms": 2500,
-    "safety_score": 1.0
-  },
   "overall_score": 0.83,
-  "scenarios_evaluated": 50,
-  "details": {
-    "immediate_accuracy": 0.90,
-    "very_urgent_accuracy": 0.82,
-    "urgent_accuracy": 0.85,
-    "standard_accuracy": 0.88,
-    "non_urgent_accuracy": 0.80
-  }
+  "triage_accuracy": 0.60,
+  "safety_score": 0.70,
+  "response_quality": 0.78,
+  "response_time_ms": 2500,
+  "scenarios_evaluated": 15
 }
 ```
 
-## Submit Your Agent
+---
 
-1. Register on [AgentBeats](https://agentbeats.dev)
-2. Implement the A2A protocol
-3. Submit to NurseSim-Triage benchmark
-4. Results appear here automatically
+## 🚀 How to Submit Your Agent
 
-## Links
+1. **Register** on [AgentBeats](https://agentbeats.dev)
+2. **Implement** the A2A protocol (see [NurseSim-RL docs](https://github.com/ClinyQAi/NurseSim-RL))
+3. **Deploy** your agent with a public endpoint
+4. **Submit** to the NurseSim-Triage benchmark
+5. **Results** appear here automatically within 15 minutes
 
-- 🏆 [Leaderboard](https://agentbeats.dev/ClinyQAi/nursesim-triage)
-- 🎮 [Live Demo](https://huggingface.co/spaces/NurseCitizenDeveloper/NurseSim-Triage-Demo)
-- 📝 [Blog Post](https://huggingface.co/blog/NurseCitizenDeveloper/nursesim-rl-training-ai-agents-clinical-triage)
-- 💻 [Source Code](https://github.com/ClinyQAi/NurseSim-RL)
+---
 
-## License
+## 🔗 Links
+
+| Resource | Link |
+|----------|------|
+| 🏆 Live Leaderboard | [AgentBeats](https://agentbeats.dev/ClinyQAi/nursesim-triage) |
+| 🎮 Try the Demo | [Hugging Face Space](https://huggingface.co/spaces/NurseCitizenDeveloper/NurseSim-Triage-Demo) |
+| 💻 Source Code | [GitHub](https://github.com/ClinyQAi/NurseSim-RL) |
+| 📝 Blog Post | [Hugging Face Blog](https://huggingface.co/blog/NurseCitizenDeveloper/nursesim-rl-training-ai-agents-clinical-triage) |
+| 🐳 Docker Image | [Docker Hub](https://hub.docker.com/r/nursecitizendeveloper/nursesim-triage) |
+
+---
+
+## 📜 License
 
 MIT License - Results data is open for research purposes.
+
+---
+
+**Built for the [OpenEnv Challenge 2026](https://rdi.berkeley.edu/agentx-agentbeats)** 🏆
