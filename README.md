@@ -56,6 +56,8 @@ NurseSim-Triage-Leaderboard/
 
 ### Result Schema
 
+Full schema definition: [`schema/result.schema.json`](./schema/result.schema.json)
+
 ```json
 {
   "agent_id": "username/agent-name",

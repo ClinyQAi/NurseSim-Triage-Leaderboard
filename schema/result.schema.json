@@ -56,7 +56,46 @@
         },
         "details": {
             "type": "object",
-            "description": "Per-category accuracy breakdown"
+            "description": "Per-category accuracy breakdown",
+            "required": [
+                "immediate_accuracy",
+                "very_urgent_accuracy",
+                "urgent_accuracy",
+                "standard_accuracy",
+                "non_urgent_accuracy"
+            ],
+            "properties": {
+                "immediate_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Accuracy for MTS Category 1 (Immediate)"
+                },
+                "very_urgent_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Accuracy for MTS Category 2 (Very Urgent)"
+                },
+                "urgent_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Accuracy for MTS Category 3 (Urgent)"
+                },
+                "standard_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Accuracy for MTS Category 4 (Standard)"
+                },
+                "non_urgent_accuracy": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Accuracy for MTS Category 5 (Non-Urgent)"
+                }
+            }
         }
     }
 }
